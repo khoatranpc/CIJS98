@@ -1,0 +1,20 @@
+- Kiểu dữ liệu
+Nguyên thuỷ (tham trị)
+
+let number = 10;
+
+
+- string: biểu diễn giá trị là các ký tự, nằm bên trong dấu '', "", ``
+- number: số -> không phân biệt số nguyên, số thập phân, ...
+- boolean: tính đúng sai, true hoặc false
+
+- null, undefined
+
+
+Tham chiếu
+
+
+let person = {
+    name: 'Doraemon'
+}
+-> xxxxxxx giá trị của person
