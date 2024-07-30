@@ -1,0 +1,23 @@
+div.likeNow {
+    width: 663px;
+    margin-bottom: 56px;
+}
+
+div.likeNow h1.titleLikeNow {
+    color: #E6656E;
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 56px;
+}
+
+div.likeNow div.banner {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+
+div.likeNow div.banner p {
+    font-size: 24px;
+    font-weight: 500;
+}
