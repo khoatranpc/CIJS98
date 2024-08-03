@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="pageHobbies">
-      <Modal />
+      <Modal /> 
       <LikeNow />
       <Filter />
       <div className="gifts">
