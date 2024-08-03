@@ -1,14 +1,16 @@
 import LikeNow from './components/LikeNow';
 import Filter from './components/Filter';
 import GiftItem from './components/GiftItem';
-import { listGift } from './data';
 import Pagination from './components/Pagination';
+import { listGift } from './data.js';
+import Modal from './components/Modal/index.jsx';
 import './App.css';
 
 function App() {
 
   return (
     <div className="pageHobbies">
+      <Modal />
       <LikeNow />
       <Filter />
       <div className="gifts">
@@ -18,28 +20,28 @@ function App() {
         </div>
         <div className="listGift">
           <div class="div1">
-            <GiftItem />
+            <GiftItem gift={listGift[0]} />
           </div>
           <div class="div2">
-            <GiftItem />
+            <GiftItem gift={listGift[1]} />
           </div>
           <div class="div3">
-            <GiftItem />
+            <GiftItem gift={listGift[2]} />
           </div>
           <div class="div4">
-            <GiftItem />
+            <GiftItem gift={listGift[3]} />
           </div>
           <div class="div5">
-            <GiftItem />
+            <GiftItem gift={listGift[4]} />
           </div>
           <div class="div6">
-            <GiftItem />
+            <GiftItem gift={listGift[5]} />
           </div>
           <div class="div7">
-            <GiftItem />
+            <GiftItem gift={listGift[6]} />
           </div>
           <div class="div8">
-            <GiftItem />
+            <GiftItem gift={listGift[7]} />
           </div>
         </div>
       </div>

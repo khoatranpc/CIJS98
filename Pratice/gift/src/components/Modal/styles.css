@@ -1,0 +1,18 @@
+div.modalGift {
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #00000030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.modalGift div.content {
+    width: 50vw;
+    min-height: 50vh;
+    background-color: white;
+}

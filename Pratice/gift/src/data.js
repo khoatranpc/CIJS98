@@ -87,7 +87,7 @@ const listGift = [
         status: 'SELLING',
         type: 'MIDDLE',
         describe: 'Đây là mô tả của sản phẩm này',
-        category: 'Rượt',
+        category: 'Rượu',
         createdAt: new Date()
     },
     {
