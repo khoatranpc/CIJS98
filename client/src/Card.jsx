@@ -1,11 +1,12 @@
 import './Card.css';
 
-const Card = () => {
+const Card = (props) => {
     return (
-        <div className="card">
+        <div className="card" onClick={props.abc}>
+            {props.children}
             <h1>HHIHI</h1>
-            <div className="name">Name: MindX School</div>
-            <div className="age">Age: 10</div>
+            <div className="name">Name: {props.name}</div>
+            <div className="age">Price: {Number(props.price).toLocaleString()}</div>
         </div>
     )
 }
