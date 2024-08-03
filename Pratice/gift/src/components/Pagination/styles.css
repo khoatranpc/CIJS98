@@ -1,0 +1,35 @@
+.pagination {
+    margin: auto;
+    margin-top: 20px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+span.chevRight svg {
+    transform: rotate(180deg);
+}
+
+div.pages {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+div.pages button {
+    border-radius: 10px;
+    border: 1px solid #B4B4B4;
+    color: #B4B4B4;
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: transparent;
+}
+
+div.pages button:hover {
+    background-color: #6A6A6A;
+    border-color: #6A6A6A;
+    color: white;
+}
