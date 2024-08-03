@@ -18,28 +18,28 @@ function App() {
         </div>
         <div className="listGift">
           <div class="div1">
-            <GiftItem gift={listGift[0]} />
+            <GiftItem />
           </div>
           <div class="div2">
-            <GiftItem gift={listGift[1]} />
+            <GiftItem />
           </div>
           <div class="div3">
-            <GiftItem gift={listGift[2]} />
+            <GiftItem />
           </div>
           <div class="div4">
-            <GiftItem gift={listGift[3]} />
+            <GiftItem />
           </div>
           <div class="div5">
-            <GiftItem gift={listGift[4]} />
+            <GiftItem />
           </div>
           <div class="div6">
-            <GiftItem gift={listGift[5]} />
+            <GiftItem />
           </div>
           <div class="div7">
-            <GiftItem gift={listGift[6]} />
+            <GiftItem />
           </div>
           <div class="div8">
-            <GiftItem gift={listGift[7]} />
+            <GiftItem />
           </div>
         </div>
       </div>
