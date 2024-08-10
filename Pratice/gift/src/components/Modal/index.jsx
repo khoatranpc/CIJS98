@@ -80,7 +80,7 @@ const Modal = (props) => {
                             </div>
                         </div>
                     </div>
-                    <p style={{ fontSize: 24, marginTop: '38px' }}>{props.gift.describe}</p>
+                    <p style={{ fontSize: 24, marginTop: '38px' }}>{props.gift.des}</p>
                 </div>
             </div>
         </div>
