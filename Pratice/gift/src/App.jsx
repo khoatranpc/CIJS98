@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import LikeNow from './components/LikeNow';
 import Filter from './components/Filter';
 import GiftItem from './components/GiftItem';
@@ -5,12 +6,20 @@ import Pagination from './components/Pagination';
 import { listGift } from './data.js';
 import Modal from './components/Modal/index.jsx';
 import './App.css';
-
+/**
+ * 
+ * Bật tắt modal 
+ * Bật modal
+ * - b1: khởi tạo 1 cái state dành cho modal
+ * - b2: thực hiện tạo 1 biến tương lai lưu trữ modal
+ * - kiểm tra nếu trạng thái modal là đang mở (true) -> biến trên kia sẽ gán bằng Component Modal
+ * 
+ * - Tắt modal
+ */
 function App() {
 
   return (
     <div className="pageHobbies">
-      <Modal /> 
       <LikeNow />
       <Filter />
       <div className="gifts">

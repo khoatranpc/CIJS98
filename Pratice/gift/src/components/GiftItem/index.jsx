@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import IconCart from '../../Icons/IconCart';
 import './styles.css';
+import Modal from '../Modal';
 
 const GiftItem = (props) => {
-    const handleClickGift = () => {
-        alert(`${props.gift.name} - ${Number(props.gift.price).toLocaleString()}VND`);
+    const [modal, setModal] = useState({
+        open: false,
+        data: null
+    });
+    let viewModal = null;
+    if (modal.open) {
+        viewModal = <Modal
+            gift={modal.data}
+            onClose={(e) => {
+                e.stopPropagation();
+                setModal({
+                    open: false,
+                    data: null
+                });
+            }} />
+    }
+    const handleClickGift = (e) => {
+        e.stopPropagation();  
+        setModal({
+            open: true,
+            data: props.gift
+        });
     }
     return (
         <div className='giftItem' onClick={handleClickGift}>
+            {viewModal}
             <img src={props.gift.image} alt="" />
             <div className="information">
                 <div className="rowName">
