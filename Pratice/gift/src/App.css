@@ -5,6 +5,11 @@ div.pageHobbies {
   padding: 67px 130px;
 }
 
+div.pageHobbies:has(div.modalCreateGift) {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 div.gifts {
   margin-top: 75px;
 }

@@ -8,7 +8,7 @@ const listGift = [
         saleOff: 0.15,
         status: 'SELLING',
         type: 'SMALL',
-        describe: 'Đây là mô tả của sản phẩm này',
+        des: 'Đây là mô tả của sản phẩm này',
         category: 'Hạt',
         createdAt: new Date()
     },
@@ -21,7 +21,7 @@ const listGift = [
         saleOff: 0,
         status: 'SELLING',
         type: 'MIDDLE',
-        describe: 'Đây là mô tả của sản phẩm này',
+        des: 'Đây là mô tả của sản phẩm này',
         category: 'Hạt',
         createdAt: new Date()
     },
@@ -34,7 +34,7 @@ const listGift = [
         saleOff: 0.1,
         status: 'SELLING',
         type: 'LARGE',
-        describe: 'Đây là mô tả của sản phẩm này',
+        des: 'Đây là mô tả của sản phẩm này',
         category: 'Rượu',
         createdAt: new Date()
     },
@@ -47,7 +47,7 @@ const listGift = [
         saleOff: 0.05,
         status: 'SELLING',
         type: 'SMALL',
-        describe: 'Đây là mô tả của sản phẩm này',
+        des: 'Đây là mô tả của sản phẩm này',
         category: 'Hạt',
         createdAt: new Date()
     },
@@ -60,7 +60,7 @@ const listGift = [
         saleOff: 0,
         status: 'SELLING',
         type: 'SMALL',
-        describe: 'Đây là mô tả của sản phẩm này',
+        des: 'Đây là mô tả của sản phẩm này',
         category: 'Trà',
         createdAt: new Date()
     },
@@ -73,7 +73,7 @@ const listGift = [
         saleOff: 0,
         status: 'SELLING',
         type: 'MIDDLE',
-        describe: 'Đây là mô tả của sản phẩm này',
+        des: 'Đây là mô tả của sản phẩm này',
         category: 'Trà',
         createdAt: new Date()
     },
@@ -86,7 +86,7 @@ const listGift = [
         saleOff: 0.15,
         status: 'SELLING',
         type: 'MIDDLE',
-        describe: 'Đây là mô tả của sản phẩm này',
+        des: 'Đây là mô tả của sản phẩm này',
         category: 'Rượu',
         createdAt: new Date()
     },
@@ -99,7 +99,7 @@ const listGift = [
         saleOff: 0.2,
         status: 'SELLING',
         type: 'MIDDLE',
-        describe: 'Đây là mô tả của sản phẩm này',
+        des: 'Đây là mô tả của sản phẩm này',
         category: 'Nước cốt',
         createdAt: new Date()
     }

@@ -1,0 +1,63 @@
+.modalCreateGift {
+    position: absolute;
+    background-color: #00000030;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalCreateGift div.content {
+    width: 50vw;
+    min-height: 50vh;
+    background-color: white;
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.modalCreateGift div.topContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modalCreateGift button.btnCloseModal {
+    border: none;
+    background-color: transparent;
+}
+
+.modalCreateGift form.formCreateNewGift {
+    margin-top: 24px;
+}
+
+.modalCreateGift form.formCreateNewGift div.row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+
+.modalCreateGift form.formCreateNewGift div.row label {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.modalCreateGift form.formCreateNewGift div.row input {
+    padding: 10px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.modalCreateGift form.formCreateNewGift button.btnSave {
+    border: none;
+    background-color: #DF3939;
+    width: 50px;
+    height: 40px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-left: auto;
+}

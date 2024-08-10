@@ -9,16 +9,13 @@ div.giftItem div.information {
 
 div.giftItem {
     height: 300px;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     cursor: pointer;
     transition: 0.3s;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 10px;
-}
-
-div.giftItem:hover {
-    transform: translateY(-10px);
 }
 
 div.rowName p {

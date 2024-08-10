@@ -6,30 +6,61 @@ import IconRateFull from '../../Icons/IconRateFull';
 import IconArrowDown from '../../Icons/IconArrowDown';
 import './styles.css';
 
-const Modal = () => {
+const getRating = {
+    1: <div className="rating">
+        <IconRateFull />
+        <IconUnRate />
+        <IconUnRate />
+        <IconUnRate />
+        <IconUnRate />
+    </div>,
+    2: <div className="rating">
+        <IconRateFull />
+        <IconRateFull />
+        <IconUnRate />
+        <IconUnRate />
+        <IconUnRate />
+    </div>,
+    3: <div className="rating">
+        <IconRateFull />
+        <IconRateFull />
+        <IconRateFull />
+        <IconUnRate />
+        <IconUnRate />
+    </div>,
+    4: <div className="rating">
+        <IconRateFull />
+        <IconRateFull />
+        <IconRateFull />
+        <IconRateFull />
+        <IconUnRate />
+    </div>,
+    5: <div className="rating">
+        <IconRateFull />
+        <IconRateFull />
+        <IconRateFull />
+        <IconRateFull />
+        <IconRateFull />
+    </div>,
+}
+const Modal = (props) => {
     return (
         <div className="modalGift">
             <div className="content">
                 <div className="topModal">
                     <button className='btnDeleteGift'><IconTrash /></button>
-                    <button className='btnCloseModal'><IconClose /></button>
+                    <button className='btnCloseModal' onClick={props.onClose}><IconClose /></button>
                 </div>
                 <div className="bodyModal">
                     <div className="rowInfo">
                         <div className="image">
-                            <img src="/public/images/img1.png" alt="" />
+                            <img src={props.gift.image} alt="" />
                         </div>
                         <div className="giftInfo">
-                            <p className='nameGift'>Ngũ hạt thập cẩm, hũ trang trí ý nghĩa</p>
-                            <div className="rating">
-                                <IconRateFull />
-                                <IconRateFull />
-                                <IconRateFull />
-                                <IconRateFull />
-                                <IconUnRate />
-                            </div>
+                            <p className='nameGift'>{props.gift.name}</p>
+                            {getRating[props.gift.rating]}
                             <p className="price">
-                                <span style={{ fontSize: '26px' }}>Giá: 42.000 VND</span> <IconArrowDown /> <sup style={{ color: '#DF3939', fontWeight: 'bold' }}>-30%</sup>
+                                <span style={{ fontSize: '26px' }}>Giá: {Number(props.gift.price).toLocaleString()} VND</span> <IconArrowDown /> <sup style={{ color: '#DF3939', fontWeight: 'bold' }}>-{props.gift.saleOff * 100}%</sup>
                             </p>
                             <div className="types">
                                 <p style={{ fontSize: '26px', marginBottom: '28px' }}>Phân loại</p>
@@ -49,7 +80,7 @@ const Modal = () => {
                             </div>
                         </div>
                     </div>
-                    <p style={{ fontSize: 24, marginTop: '38px' }}>Ngũ hạt thập cẩm đặc sản Langfarm - Món ăn vặt ưa thích, hương vị thơm ngon, an toàn vệ sinh. Phù hợp làm quà vào các dịp lễ, thân thiện với mọi nhà</p>
+                    <p style={{ fontSize: 24, marginTop: '38px' }}>{props.gift.des}</p>
                 </div>
             </div>
         </div>
