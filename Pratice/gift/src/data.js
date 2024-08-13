@@ -10,7 +10,7 @@ const listGift = [
         type: 'SMALL',
         des: 'Đây là mô tả của sản phẩm này',
         category: 'Hạt',
-        createdAt: new Date()
+        createdAt: new Date(2023, 9, 10)
     },
     {
         id: 2,

@@ -25,6 +25,7 @@ import './App.css';
 
 function App() {
   const [modalCreateGift, setModalCreateGift] = useState(false);
+  const [gifts, setGifts] = useState(listGift);
   const [newGift, setNewGift] = useState({
     name: '',
     image: '',
@@ -37,7 +38,6 @@ function App() {
     status: '',
     createdAt: new Date()
   });
-
   let ModalCreate = null;
   if (modalCreateGift) {
     ModalCreate = <ModalCreateGift
@@ -46,6 +46,14 @@ function App() {
       }}
       gift={newGift}
       setNewGift={setNewGift}
+      onSubmit={(newGift) => {
+        const getNewGift = {
+          ...newGift,
+          id: new Date().getTime(),
+          createdAt: new Date()
+        };
+        setGifts([...gifts, getNewGift]);
+      }}
     />;
   }
 
@@ -62,30 +70,15 @@ function App() {
           }}>Tạo</button>
         </div>
         <div className="listGift">
-          <div class="div1">
-            <GiftItem gift={listGift[0]} />
-          </div>
-          <div class="div2">
-            <GiftItem gift={listGift[1]} />
-          </div>
-          <div class="div3">
-            <GiftItem gift={listGift[2]} />
-          </div>
-          <div class="div4">
-            <GiftItem gift={listGift[3]} />
-          </div>
-          <div class="div5">
-            <GiftItem gift={listGift[4]} />
-          </div>
-          <div class="div6">
-            <GiftItem gift={listGift[5]} />
-          </div>
-          <div class="div7">
-            <GiftItem gift={listGift[6]} />
-          </div>
-          <div class="div8">
-            <GiftItem gift={listGift[7]} />
-          </div>
+          {
+            gifts.sort((a, b) => {
+              return - new Date(a.createdAt).getTime() + new Date(b.createdAt).getTime()
+            }).map((item, idx) => {
+              return <div key={item.id} class={`div${idx + 1}`}>
+                <GiftItem gift={item} />
+              </div>
+            })
+          }
         </div>
       </div>
       <Pagination />
