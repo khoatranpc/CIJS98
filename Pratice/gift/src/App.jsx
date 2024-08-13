@@ -25,13 +25,28 @@ import './App.css';
 
 function App() {
   const [modalCreateGift, setModalCreateGift] = useState(false);
-  const [newGift, setNewGift] = useState({});
+  const [newGift, setNewGift] = useState({
+    name: '',
+    image: '',
+    rating: '',
+    des: '',
+    price: '',
+    saleOff: '',
+    category: '',
+    type: '',
+    status: '',
+    createdAt: new Date()
+  });
 
   let ModalCreate = null;
   if (modalCreateGift) {
-    ModalCreate = <ModalCreateGift onClose={() => {
-      setModalCreateGift(false);
-    }} />;
+    ModalCreate = <ModalCreateGift
+      onClose={() => {
+        setModalCreateGift(false);
+      }}
+      gift={newGift}
+      setNewGift={setNewGift}
+    />;
   }
 
   return (
