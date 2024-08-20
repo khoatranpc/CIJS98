@@ -12,6 +12,7 @@ const GiftItem = (props) => {
     if (modal.open) {
         viewModal = <Modal
             gift={modal.data}
+            index={props.index}
             onClose={(e) => {
                 e.stopPropagation();
                 setModal({
@@ -21,7 +22,7 @@ const GiftItem = (props) => {
             }} />
     }
     const handleClickGift = (e) => {
-        e.stopPropagation();  
+        e.stopPropagation();
         setModal({
             open: true,
             data: props.gift

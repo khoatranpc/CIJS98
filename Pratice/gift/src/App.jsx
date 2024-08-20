@@ -73,11 +73,9 @@ function App() {
         </div>
         <div className="listGift">
           {
-            store.listGift.sort((a, b) => {
-              return - new Date(a.createdAt).getTime() + new Date(b.createdAt).getTime()
-            }).map((item, idx) => {
+            store.listGift.map((item, idx) => {
               return <div key={item.id} class={`div${idx + 1}`}>
-                <GiftItem gift={item} />
+                <GiftItem gift={item} index={idx} />
               </div>
             })
           }

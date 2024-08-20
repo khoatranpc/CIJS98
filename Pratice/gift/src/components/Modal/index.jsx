@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import IconTrash from '../../Icons/IconTrash';
 import IconClose from '../../Icons/IconClose';
 import IconUnRate from '../../Icons/IconUnRate';
 import IconRateFull from '../../Icons/IconRateFull';
 import IconArrowDown from '../../Icons/IconArrowDown';
+import { Store } from '../../Store';
 import './styles.css';
 
 const getRating = {
@@ -44,11 +45,15 @@ const getRating = {
     </div>,
 }
 const Modal = (props) => {
+    const store = useContext(Store);
     return (
         <div className="modalGift">
             <div className="content">
                 <div className="topModal">
-                    <button className='btnDeleteGift'><IconTrash /></button>
+                    <button className='btnDeleteGift' onClick={() => {
+                        store.listGift.splice(props.index, 1);
+                        store.setListGift([...store.listGift]);
+                    }}><IconTrash /></button>
                     <button className='btnCloseModal' onClick={props.onClose}><IconClose /></button>
                 </div>
                 <div className="bodyModal">

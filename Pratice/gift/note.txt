@@ -5,3 +5,20 @@ Lesson 9
 20h57
 
 -> Bọc giới hạn cho toàn bộ app
+
+
+Xoá sản phẩm
+
+-> Xoá một phần tử của mảng
+
+
+
+
+splice(index, amounts)   -> bị thay đổi mảng ban đầu
+
+state không hề cập nhật nhật -> chỉ cập nhật lại khi dùng hàm setState
+
+
+Step 1: Khi kích vào nút thùng rác -> in ra được id của sản phẩm, vị trí của sản phẩm trong mảng ban đầu
+
+Step 2: xoá phần tử sử dụng splice(index, 1);
