@@ -1,0 +1,7 @@
+Lesson 9
+-> Khởi tạo kho: createContext từ react
+-> Tạo giới hạn: store.Provider  -> khởi tạo cả dữ liệu
+
+20h57
+
+-> Bọc giới hạn cho toàn bộ app

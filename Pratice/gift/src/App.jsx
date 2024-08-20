@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import LikeNow from './components/LikeNow';
 import Filter from './components/Filter';
 import GiftItem from './components/GiftItem';
 import Pagination from './components/Pagination';
 import { listGift } from './data.js';
 import ModalCreateGift from './components/ModalCreateGift';
+import { Store } from './Store';
 import './App.css';
 /**
  * 
@@ -25,7 +26,8 @@ import './App.css';
 
 function App() {
   const [modalCreateGift, setModalCreateGift] = useState(false);
-  const [gifts, setGifts] = useState(listGift);
+  const store = useContext(Store);
+
   const [newGift, setNewGift] = useState({
     name: '',
     image: '',
@@ -52,7 +54,7 @@ function App() {
           id: new Date().getTime(),
           createdAt: new Date()
         };
-        setGifts([...gifts, getNewGift]);
+        store.setListGift([...store.listGift, getNewGift]);
       }}
     />;
   }
@@ -71,7 +73,7 @@ function App() {
         </div>
         <div className="listGift">
           {
-            gifts.sort((a, b) => {
+            store.listGift.sort((a, b) => {
               return - new Date(a.createdAt).getTime() + new Date(b.createdAt).getTime()
             }).map((item, idx) => {
               return <div key={item.id} class={`div${idx + 1}`}>
