@@ -5,6 +5,7 @@ import Filter from './components/Filter';
 import GiftItem from './components/GiftItem';
 import Pagination from './components/Pagination';
 import { Routes, Route, useParams, Outlet } from 'react-router-dom';
+import ModalCreateGift from './components/ModalCreateGift'
 import { listGift } from './data.js';
 import './App.css';
 import { Store } from './Store.jsx';
