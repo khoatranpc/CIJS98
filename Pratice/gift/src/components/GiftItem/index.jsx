@@ -1,36 +1,18 @@
 import React, { useState } from 'react';
 import IconCart from '../../Icons/IconCart';
+import { useNavigate } from 'react-router-dom';
 import './styles.css';
 import Modal from '../Modal';
 
 const GiftItem = (props) => {
-    const [modal, setModal] = useState({
-        open: false,
-        data: null
-    });
-    let viewModal = null;
-    if (modal.open) {
-        viewModal = <Modal
-            gift={modal.data}
-            index={props.index}
-            onClose={(e) => {
-                e.stopPropagation();
-                setModal({
-                    open: false,
-                    data: null
-                });
-            }} />
-    }
+    const crrid = String(props.gift.id);
+    const nav = useNavigate();
     const handleClickGift = (e) => {
         e.stopPropagation();
-        setModal({
-            open: true,
-            data: props.gift
-        });
+        nav(`/${crrid}`);
     }
     return (
         <div className='giftItem' onClick={handleClickGift}>
-            {viewModal}
             <img src={props.gift.image} alt="" />
             <div className="information">
                 <div className="rowName">

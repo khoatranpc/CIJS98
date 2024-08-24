@@ -4,7 +4,7 @@ import IconClose from '../../Icons/IconClose';
 import IconUnRate from '../../Icons/IconUnRate';
 import IconRateFull from '../../Icons/IconRateFull';
 import IconArrowDown from '../../Icons/IconArrowDown';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Store } from '../../Store';
 import './styles.css';
 
@@ -50,8 +50,7 @@ const Modal = (props) => {
     const params = useParams();
     const crrid = params.productId;
     const crrProduct = store.listGift.findIndex(item => String(item.id) === String(crrid));
-    console.log("🚀 ~ Modal ~ params:", crrProduct);
-
+    const nav = useNavigate();
 
     return (
         <div className="modalGift">
@@ -62,7 +61,9 @@ const Modal = (props) => {
                         store.listGift.splice(props.index, 1);
                         store.setListGift([...store.listGift]);
                     }}><IconTrash /></button>
-                    <button className='btnCloseModal' onClick={props.onClose}><IconClose /></button>
+                    <button className='btnCloseModal' onClick={() => {
+                        nav('/');
+                    }}><IconClose /></button>
                 </div>
                 {crrProduct < 0 ? <p>Không tìm thấy sản phẩm</p> : <div className="bodyModal">
                     <div className="rowInfo">
