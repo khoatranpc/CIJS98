@@ -102,7 +102,33 @@ const listGift = [
         des: 'Đây là mô tả của sản phẩm này',
         category: 'Nước cốt',
         createdAt: new Date()
-    }
+    },
+    {
+        id: 9,
+        name: 'Hộp ăn kem',
+        image: '/public/images/img4.png',
+        rating: 1,
+        price: 300000,
+        saleOff: 0.05,
+        status: 'SELLING',
+        type: 'SMALL',
+        des: 'Đây là mô tả của sản phẩm này',
+        category: 'Hạt',
+        createdAt: new Date()
+    },
+    {
+        id: 10,
+        name: 'Bột rau má, kết hợp rượu Spanish',
+        image: '/public/images/img7.png',
+        rating: 5,
+        price: 100000,
+        saleOff: 0.15,
+        status: 'SELLING',
+        type: 'MIDDLE',
+        des: 'Đây là mô tả của sản phẩm này',
+        category: 'Rượu',
+        createdAt: new Date()
+    },
 ];
 
 export {

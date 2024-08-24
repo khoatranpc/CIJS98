@@ -4,7 +4,7 @@ import LikeNow from './components/LikeNow';
 import Filter from './components/Filter';
 import GiftItem from './components/GiftItem';
 import Pagination from './components/Pagination';
-import { Routes, Route, useParams, Outlet } from 'react-router-dom';
+import { Routes, Route, useSearchParams, Outlet } from 'react-router-dom';
 import ModalCreateGift from './components/ModalCreateGift'
 import { listGift } from './data.js';
 import './App.css';
@@ -13,6 +13,19 @@ import { Store } from './Store.jsx';
 const Listing = () => {
     const [modalCreateGift, setModalCreateGift] = useState(false);
     const store = useContext(Store);
+    const [queries, setQueries] = useSearchParams();
+    const items = Number(queries.get('items')) ?? 8;
+    const crrPage = Number(queries.get('currentPage')) ?? 1;
+    const crrStartIndex = (crrPage * items - 1) - 7;
+    const crrEndIndex = (crrPage * items - 1);
+    console.log(crrStartIndex, crrEndIndex);
+    /**
+     * Logic lấy vị trí phần tử theo số trang
+     * 
+     * vị trí bắt đầu: (p*items - 1) - 7   -> 7 - 7 = 0
+     * vị trí kết thúc:  p*items - 1    -> 7
+     * 
+     */
     const [newGift, setNewGift] = useState({
         name: '',
         image: '',
@@ -57,7 +70,7 @@ const Listing = () => {
                 </div>
                 <div className="listGift">
                     {
-                        store.listGift.map((item, idx) => {
+                        store.listGift.slice(crrStartIndex, crrEndIndex + 1).map((item, idx) => {
                             return <div key={item.id} class={`div${idx + 1}`}>
                                 <GiftItem gift={item} index={idx} />
                             </div>
