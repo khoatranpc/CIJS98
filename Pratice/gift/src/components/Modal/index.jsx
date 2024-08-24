@@ -4,6 +4,7 @@ import IconClose from '../../Icons/IconClose';
 import IconUnRate from '../../Icons/IconUnRate';
 import IconRateFull from '../../Icons/IconRateFull';
 import IconArrowDown from '../../Icons/IconArrowDown';
+import { useParams } from 'react-router-dom';
 import { Store } from '../../Store';
 import './styles.css';
 
@@ -46,8 +47,15 @@ const getRating = {
 }
 const Modal = (props) => {
     const store = useContext(Store);
+    const params = useParams();
+    const crrid = params.productId;
+    const crrProduct = store.listGift.findIndex(item => String(item.id) === String(crrid));
+    console.log("🚀 ~ Modal ~ params:", crrProduct);
+
+
     return (
         <div className="modalGift">
+
             <div className="content">
                 <div className="topModal">
                     <button className='btnDeleteGift' onClick={() => {
@@ -56,16 +64,16 @@ const Modal = (props) => {
                     }}><IconTrash /></button>
                     <button className='btnCloseModal' onClick={props.onClose}><IconClose /></button>
                 </div>
-                <div className="bodyModal">
+                {crrProduct < 0 ? <p>Không tìm thấy sản phẩm</p> : <div className="bodyModal">
                     <div className="rowInfo">
                         <div className="image">
-                            <img src={props.gift.image} alt="" />
+                            <img src={store.listGift[crrProduct].image} alt="" />
                         </div>
                         <div className="giftInfo">
-                            <p className='nameGift'>{props.gift.name}</p>
-                            {getRating[props.gift.rating]}
+                            <p className='nameGift'>{store.listGift[crrProduct].name}</p>
+                            {getRating[store.listGift[crrProduct].rating]}
                             <p className="price">
-                                <span style={{ fontSize: '26px' }}>Giá: {Number(props.gift.price).toLocaleString()} VND</span> <IconArrowDown /> <sup style={{ color: '#DF3939', fontWeight: 'bold' }}>-{props.gift.saleOff * 100}%</sup>
+                                <span style={{ fontSize: '26px' }}>Giá: {Number(store.listGift[crrProduct].price).toLocaleString()} VND</span> <IconArrowDown /> <sup style={{ color: '#DF3939', fontWeight: 'bold' }}>-{store.listGift[crrProduct].saleOff * 100}%</sup>
                             </p>
                             <div className="types">
                                 <p style={{ fontSize: '26px', marginBottom: '28px' }}>Phân loại</p>
@@ -85,8 +93,9 @@ const Modal = (props) => {
                             </div>
                         </div>
                     </div>
-                    <p style={{ fontSize: 24, marginTop: '38px' }}>{props.gift.des}</p>
-                </div>
+                    <p style={{ fontSize: 24, marginTop: '38px' }}>{store.listGift[crrProduct].des}</p>
+                </div>}
+
             </div>
         </div>
     )
