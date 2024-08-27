@@ -9,11 +9,20 @@ const ModalCreateGift = (props) => {
             ...props.gift
         });
     }
+    const handleCreate = () => {
+        fetch('https://66cdd5008ca9aa6c8ccbce0c.mockapi.io/gifts', {
+            method: 'post',
+            body: JSON.stringify(props.gift),
+            headers: {'content-type':'application/json'},
+        }).then(response => {
+            return response.json()
+        }).then(data => {
+            console.log(data);
+        })
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.onSubmit(props.gift);
-        props.onClose();
-
+        handleCreate();
     }
     return (
         <div className="modalCreateGift">
