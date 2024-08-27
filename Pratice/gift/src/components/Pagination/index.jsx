@@ -11,8 +11,8 @@ const Pagination = () => {
     const listGift = store.listGift;
     const [queries, setQueries] = useSearchParams();
     const items = queries.get('items');
-    const totalPage = getTotalPage(listGift.length, Number(items) ?? 8);
-    const getArrayPage = new Array(totalPage);
+    // const totalPage = getTotalPage(listGift?.length ?? 0, Number(items) ?? 8) ?? 0;
+    // const getArrayPage = new Array(totalPage) ?? [];
     const handleChangePage = (page) => {
         setQueries({
             items,
@@ -25,7 +25,7 @@ const Pagination = () => {
                 <IconChevronLeft />
             </span>
             <div className="pages">
-                {[...getArrayPage].map((_, index) => {
+                {listGift.map((_, index) => {
                     return <button key={index + 1} onClick={() => handleChangePage(index + 1)}>{index + 1}</button>
                 })}
                 <span style={{ color: '#383838' }}>...</span>

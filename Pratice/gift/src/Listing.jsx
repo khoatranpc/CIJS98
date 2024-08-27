@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useContext, useState } from 'react';
 import LikeNow from './components/LikeNow';
 import Filter from './components/Filter';
@@ -7,13 +7,14 @@ import Pagination from './components/Pagination';
 import { Routes, Route, useSearchParams, Outlet } from 'react-router-dom';
 import ModalCreateGift from './components/ModalCreateGift'
 import { listGift } from './data.js';
-import './App.css';
 import { Store } from './Store.jsx';
+import './App.css';
 
 const Listing = () => {
     const [modalCreateGift, setModalCreateGift] = useState(false);
     const store = useContext(Store);
     const [queries, setQueries] = useSearchParams();
+    const [loading, setLoading] = useState(true);
     const items = Number(queries.get('items')) ?? 8;
     const crrPage = Number(queries.get('currentPage')) ?? 1;
     const crrStartIndex = (crrPage * items - 1) - 7;
@@ -56,6 +57,17 @@ const Listing = () => {
             }}
         />;
     }
+    const handleQueryGifts = () => {
+        fetch('https://66cdd5008ca9aa6c8ccbce0c.mockapi.io/gifts').then((response) => {
+            return response.json()
+        }).then((data => {
+            store.setListGift(data);
+            setLoading(false);
+        }));
+    }
+    useEffect(() => {
+        handleQueryGifts();
+    }, []);
     return (
         <div className="pageHobbies">
             <LikeNow />
@@ -70,7 +82,7 @@ const Listing = () => {
                 </div>
                 <div className="listGift">
                     {
-                        store.listGift.slice(crrStartIndex, crrEndIndex + 1).map((item, idx) => {
+                        loading ? <div class="loader"></div> : store.listGift.map((item, idx) => {
                             return <div key={item.id} class={`div${idx + 1}`}>
                                 <GiftItem gift={item} index={idx} />
                             </div>
